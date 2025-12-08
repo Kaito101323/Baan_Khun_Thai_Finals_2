@@ -1,0 +1,562 @@
+:root {
+  --purple-main: #602f78;
+  --purple-dark: #47206a;
+  --bg: #f3f0f8;
+  --white: #ffffff;
+  --gold: #f4d27a;
+  --text-main: #333333;
+  --text-muted: #777777;
+}
+
+/* ========== GLOBAL ========== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: var(--text-main);
+  background-image: url("Images/Wood.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Simple layout helpers if needed */
+.page-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 24px 40px 24px;
+}
+
+/* ========== NAVBAR (shared) ========== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--purple-dark);
+  padding: 10px 32px;
+  color: var(--white);
+}
+
+.nav-logo {
+  height: 40px;
+  width: auto;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav-link {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--gold);
+}
+
+.book-btn {
+  background-color: var(--gold);
+  color: var(--purple-dark);
+  padding: 6px 18px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 2px solid var(--gold);
+}
+
+/* ========== PROFILE AREA (navbar) ========== */
+.navbar-profile {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* pill-style profile button + dropdown */
+.profile-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.18);
+  border-radius: 999px;
+  padding: 4px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #f9fafb;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.profile-toggle:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.profile-toggle:focus {
+  outline: none;
+}
+
+.profile-pic {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-name {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.profile-caret {
+  font-size: 0.7rem;
+}
+
+.profile-menu {
+  position: absolute;
+  right: 0;
+  top: 120%;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.25);
+  padding: 6px 0;
+  min-width: 160px;
+  display: none;
+  z-index: 20;
+}
+
+.profile-menu a {
+  display: block;
+  padding: 8px 14px;
+  font-size: 14px;
+  color: #111827;
+  text-decoration: none;
+}
+
+.profile-menu a:hover {
+  background: #f3f4f6;
+}
+
+/* ========== DASHBOARD MAIN WRAPPER ========== */
+.dashboard-main {
+  padding: 20px 24px 40px 24px;
+}
+
+/* ========== HERO SLIDER (dashboard) ========== */
+.hero-slider {
+  max-width: 1200px;
+  margin: 0 auto 30px auto;
+  background-color: #000;
+  border-radius: 14px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+.hero-slide img {
+  display: block;
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  left: 30px;
+  bottom: 30px;
+  color: #fff;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+.hero-overlay h2 {
+  margin: 0 0 6px 0;
+  font-size: 1.6rem;
+}
+
+.hero-overlay p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* Slider arrows */
+.hero-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-arrow-left {
+  left: 10px;
+}
+
+.hero-arrow-right {
+  right: 10px;
+}
+
+.hero-arrow:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Slider dots */
+.hero-dots {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.hero-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+}
+
+.hero-dot.active {
+  background-color: #ffffff;
+}
+
+/* ========== RECOMMENDATIONS (dashboard) ========== */
+.reco-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: var(--purple-dark);
+  border-radius: 6px;
+  padding: 24px 28px 28px 28px;
+  color: #fff;
+}
+
+.reco-title {
+  margin: 0 0 18px 0;
+  font-size: 1.8rem;
+  color: var(--gold);
+}
+
+.reco-cards {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.reco-card {
+  background-color: #4f2978;
+  border-radius: 4px;
+  padding: 14px 14px 16px 14px;
+  flex: 1 1 0;
+  min-width: 230px;
+  color: #fff;
+}
+
+.reco-card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.reco-card h3 {
+  margin: 0 0 6px 0;
+  font-size: 1rem;
+}
+
+.reco-card p {
+  margin: 0 0 10px 0;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.reco-btn {
+  display: inline-block;
+  background-color: var(--gold);
+  color: var(--purple-dark);
+  padding: 5px 14px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* ========== SERVICES PAGE SHARED STYLES ========== */
+.services-page {
+  /* uses body background; left for spacing if needed */
+}
+
+/* header block used in services & profile pages */
+.page-header {
+  max-width: 1100px;
+  margin: 32px auto 10px auto;
+  padding: 0 20px;
+  text-align: left;
+}
+
+.page-header h2 {
+  margin: 0 0 6px 0;
+  font-size: 2rem;
+  color: var(--purple-main);
+}
+
+.page-header p {
+  margin: 0;
+  font-size: 0.98rem;
+  color: var(--text-muted);
+}
+
+/* original long list layout (if you still use it) */
+.services-list {
+  max-width: 1100px;
+  margin: 16px auto 40px auto;
+  padding: 0 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.service-item {
+  display: flex;
+  gap: 18px;
+  background-color: var(--white);
+  border-radius: 18px;
+  padding: 14px 16px;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.service-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
+  background: linear-gradient(120deg, #ffffff, #f9f3ff);
+}
+
+.service-item img {
+  width: 180px;
+  height: 130px;
+  border-radius: 14px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.service-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+}
+
+.service-info h3 {
+  margin: 0 0 6px 0;
+  font-size: 1.05rem;
+  color: var(--purple-main);
+}
+
+.service-info p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.service-meta {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  color: var(--purple-main);
+  font-size: 0.95rem;
+}
+
+/* ========== NEW SERVICES GRID & FILTER (Customer_services.php) ========== */
+.services-panel {
+  max-width: 1100px;
+  margin: 0 auto 32px;
+  padding: 16px 20px 18px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(96, 47, 120, 0.12);
+}
+
+.services-filter {
+  margin-bottom: 10px;
+}
+
+.services-filter label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #602f78;
+  margin-bottom: 4px;
+}
+
+.services-filter select {
+  width: 260px;
+  max-width: 100%;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  font-size: 14px;
+}
+
+/* grid version used by JS in Customer_services.php */
+.services-panel .services-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 10px;
+  margin-top: 6px;
+  max-width: 100%;
+  padding: 0;
+}
+
+.services-panel .service-item {
+  display: grid;
+  grid-template-columns: 90px minmax(0, 1fr);
+  column-gap: 10px;
+  row-gap: 4px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  background: #faf5ff;
+  border: 1px solid #e5e7eb;
+  box-shadow: none;
+  transform: none;
+}
+
+.services-panel .service-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
+  background: #f9f5ff;
+}
+
+.services-panel .service-item img {
+  width: 90px;
+  height: 90px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.services-panel .service-info h3 {
+  font-size: 15px;
+  margin-bottom: 2px;
+  color: #4a2c63;
+}
+
+.services-panel .service-info p {
+  font-size: 13px;
+  color: #6b7280;
+  margin-bottom: 3px;
+}
+
+.services-panel .service-meta {
+  font-size: 13px;
+  font-weight: 600;
+  color: #c28b00;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ========== PROFILE PAGE EXTRA (if you add cards/sections) ========== */
+/* Example basic layout hooks, adjust to match your actual profile HTML */
+.profile-main {
+  max-width: 1100px;
+  margin: 24px auto 40px;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 320px minmax(0, 1fr);
+  gap: 20px;
+}
+
+.profile-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  padding: 18px 16px;
+}
+
+.profile-card h3 {
+  margin: 0 0 10px;
+  font-size: 1.1rem;
+  color: var(--purple-main);
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 900px) {
+  .navbar {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .navbar-links {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-top: 6px;
+  }
+
+  .reco-cards {
+    flex-direction: column;
+  }
+
+  .profile-main {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-slide img {
+    height: 240px;
+  }
+
+  .service-item {
+    flex-direction: column;
+  }
+
+  .service-item img {
+    width: 100%;
+    height: 200px;
+  }
+
+  .page-header {
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .services-panel {
+    padding: 14px 12px 16px;
+  }
+
+  .services-panel .services-list {
+    grid-template-columns: 1fr;
+  }
+}
